@@ -1,12 +1,33 @@
+
 React Native http cache control for both fetch/XMLHttpRequest and ImageView
 
 - [x] iOS
 - [x] Android
 
+由于原来仓库[react-native-http-cache](https://github.com/reactnativecn/react-native-http-cache)不再维护，导致高版本无法安装使用。
+参照网上各种帖子，修复了一个版本,经测试 "react-native": "0.63.4"是可以使用的。
+
+
 ## Installation
 
 ```sh
-$ npm install react-native-http-cache --save
+$ npm install react-native-http-cache-r --save
+$ react-native link react-native-http-cache-r
+# ios 
+$ cd ios & pod intall
+```
+
+
+## Usage
+```js
+import * as CacheManager from 'react-native-http-cache';
+
+CacheManager.getCacheSize().then(res => {
+  console.log('cache size', res)
+});
+
+CacheManager.clearCache()
+
 ```
 
 ## iOS: Linking in your XCode project
@@ -84,6 +105,7 @@ CacheManager.clear();
 ```
 
 ## API Documentation
+
 
 #### clear()
 
